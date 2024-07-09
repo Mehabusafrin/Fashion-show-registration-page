@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Show Event</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        display: none; /* Initially hide registration form */
+    }
+    input[type="text"], input[type="email"], input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .success-message {
+        margin-top: 10px;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 10px;
+        border-radius: 4px;
+        display: none;
+    }
+</style>
+<script>
+    function validateForm() {
+        var name = document.forms["registrationForm"]["name"].value;
+        var email = document.forms["registrationForm"]["email"].value;
+        var phone = document.forms["registrationForm"]["phone"].value;
+
+        if (name == "") {
+            alert("Name must be filled out");
+            return false;
+        }
+        if (email == "") {
+            alert("Email must be filled out");
+            return false;
+        }
+        if (phone == "") {
+            alert("Phone must be filled out");
+            return false;
+        }
+        // Additional validations can be added as needed
+        return true;
+    }
+
+    function showRegistrationForm() {
+        var registrationForm = document.getElementById("registrationForm");
+        var container = document.getElementById("container");
+        
+        container.style.display = "none"; // Hide event details
+        registrationForm.style.display = "block"; // Show registration form
+    }
+
+    function showSuccessMessage() {
+        var form = document.getElementById("registrationForm");
+        form.style.display = "none";
+        var successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "block";
+    }
+</script>
+</head>
+<body>
+<div id="container">
+    <center>
+    <h1>Fashion Show</h1>
+    <p><i>Strut in Style, Where Fashion takes the Spotlight</i></p>
+    <hr>
+    </center>
+    <p>Fashion Week is a common event in the fashion industry where top designers, brands, or fashion houses showcase their upcoming collections through runway shows and presentations. Major fashion capitals like New York, Paris, Milan, and London host some of the most influential fashion weeks, setting trends for the seasons to come.</p>
+    
+    <center>
+    <img src="fas.jpg" alt="Fashion Show" width="700px">
+    <h2>Fashion Week Show</h2>
+    </center>
+    <p>The Chennai Trade Centre recently hosted a successful fashion show featuring a variety of bridal wears including gowns, sarees, and lehengas. The event highlighted different bridal styles, perfect for any bride-to-be, showcasing colors and fabrics that flatter every individual. Models graced the runway with grace and beauty, showcasing the latest trends in bridal wear.</p>
+    
+    <p>From traditional to contemporary designs, the show featured standout attire such as intricately designed lace gowns and embroidered sarees. Models captivated the audience with their stunning appearances, inspiring attendees to explore their perfect bridal attire.</p>
+    
+    <center>
+    <img src="fas2.jpg" alt="Bridal Gown" width="300px">
+    </center>
+    
+    <p>One of the highlights of the show was a floral motif gown adorned with zardozi stones and beads, offering a unique and statement-making design. The gown, featuring a pink sleeveless design with a V neckline, was crafted to exude elegance and charm, making it an ideal choice for a summer wedding.</p>
+    
+    <center>
+    <a href="https://www.pothys.com/"><h1>Pothys Fashion Store</h1></a>
+    <p><i><b>Save the Date</b></i></p>
+    <h3>14.07.2024</h3>
+    <p>Saturday, July 2024 | Doors open at 8pm</p>
+    <p>Free Entry | Free Drinks | No Pets Allowed</p>
+    
+    <div class="button-container">
+        <button onclick="showRegistrationForm()">Click below for Participation</button>
+    </div>
+    <hr>
+    
+    <h2>Contact</h2>
+    <p>9876543210 | mehabusafrin@gmail.com</p>
+    <p>Apple Tree Hotel, Vanarpettai, Tirunelveli</p>
+    </center>
+</div>
+
+<div class="container" id="registrationForm">
+    <h2>Event Registration</h2>
+    <form name="registrationForm" onsubmit="event.preventDefault(); if(validateForm()) showSuccessMessage();" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="18" max="100"><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <div id="successMessage" class="success-message">
+        <p>Thank you for registering! Your registration has been successful.</p>
+    </div>
+</div>
+
+</body>
+</html>
